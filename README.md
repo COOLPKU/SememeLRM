@@ -46,26 +46,6 @@ The `word1_senses` / `word2_senses` field contains the following sub-fields:
 |**triples**|A list of triple lists, where each inner list contains `(child, relation, parent)` triples describing the sememe tree edges of one sense|
 |**main_sememes**|A list of main sememes (root nodes), one per sense|
 
-A (truncated) example sample is:
-```json
-{
-  "word1": "turtle",
-  "word2": "live",
-  "rel": "event",
-  "source": "BLESS",
-  "word1_senses": {
-    "sememes": [["fish|鱼", "noun"]],
-    "triples": [[["noun", "part_of_speech", "fish|鱼"], ["fish|鱼", "self_relation", "fish|鱼"]]],
-    "main_sememes": ["fish|鱼"]
-  },
-  "word2_senses": {
-    "sememes": [["reside|住下", "verb"], ["alive|活着", "verb"]],
-    "triples": [[["verb", "part_of_speech", "reside|住下"]], [["verb", "part_of_speech", "alive|活着"]]],
-    "main_sememes": ["reside|住下", "alive|活着"]
-  }
-}
-```
-
 The corresponding train / dev / test files are:
 - `train_data.jsonl`
 - `dev_data.jsonl`
