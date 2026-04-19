@@ -1,33 +1,31 @@
-# Can Structured Sememe Knowledge Benefit Lexical Relation Mining?
+Enhancing Lexical Relation Mining with Structured Sememe Knowledge
 [![Paper](https://img.shields.io/badge/Paper-ACL%202026-blue)]()
 
-Data and code for the paper "Can Structured Sememe Knowledge Benefit Lexical Relation Mining?" submitted to ACL 2026.
+Data and code for the paper "Enhancing Lexical Relation Mining with Structured Sememe Knowledge" accepted by ACL 2026 main.
 
 ## 🌟 Key Contributions
-- We propose **SememeLRM**, a novel method that integrates structured sememe knowledge into PLM-based lexical relation mining frameworks, enhancing both **Lexical Relation Classification (LRC)** and **Lexical Entailment (LE)** tasks;
-- SememeLRM encodes sememe trees with a Relational Graph Neural Network (R-GNN) module and injects sense-level sememe embeddings into the representation space of a pre-trained language model as complementary semantic features;
-- With only an additional lightweight R-GCN module (47M), SememeLRM built on DeBERTa-large (350M) achieves performance comparable to or even better than methods built on much larger backbones (DeBERTa-xlarge, LLaMA3-8B), attaining the best weighted F1 on BLESS and EVALution for LRC and the best Spearman ρ on HyperLex for LE;
-- We further demonstrate that sememe trees predicted by our automated STC (Structured Sememe Tree Construction) pipeline can achieve comparable performance to gold-standard sememe data from HowNet, extending the applicability of sememe-enhanced methods to annotation-scarce scenarios.
+- We propose an automated STC pipeline, aiming to tackle the challenges of adopting structured sememe knowledge in annotation-scarce scenarios;
+- We propose the SememeLRM method to fully leverage structured sememe knowledge for enhancing LRC and LE, achieving a notable 1.6% improvement on average across benchmarks;
+- We present a potentially generalizable framework to leverage complete sememe trees in downstream tasks, helping to unlock the value of such
+intralexical knowledge in more NLP applications.
 
 ## 📊 Data
 
 ### 1. Lexical Relation Classification (LRC) Datasets
 We evaluate SememeLRM on five widely used LRC benchmarks:
-- **BLESS** (Baroni and Lenci, 2011)
-- **K&H+N** (Necșulescu et al., 2015)
-- **EVALution** (Santus et al., 2015)
-- **CogALexV** (Santus et al., 2016)
-- **ROOT09** (Santus et al., 2016)
+- **BLESS** 
+- **K&H+N** 
+- **EVALution** 
+- **CogALexV** 
+- **ROOT09** 
 
 These datasets jointly cover 10 relation types, including Random, Synonymy, Hypernymy, Co-hyponymy, Antonymy, Meronymy, Part_of, Event, Attribute, and Made_of.
 
 ### 2. Lexical Entailment (LE) Dataset
-- **HyperLex** (Vulić et al., 2017), providing two splits:
-  - **Lexical split**: 1,133 / 85 / 269 pairs (train / dev / test)
-  - **Random split**: 1,831 / 130 / 655 pairs (train / dev / test)
+- **HyperLex** 
 
 ### 3. Unified Data Format
-All data across the above benchmarks is unified into a single JSONL file (e.g., `test_data1231.jsonl`), with one JSON sample per line. Each sample contains a word pair, the relation label, the data source, and the DEF sememe tree information for both words.
+All data across the above benchmarks is unified into a single JSONL file (e.g., `test_data.jsonl`), with one JSON sample per line. Each sample contains a word pair, the relation label, the data source, and the DEF sememe tree information for both words.
 
 Each sample includes the following fields:
 
@@ -69,9 +67,9 @@ A (truncated) example sample is:
 ```
 
 The corresponding train / dev / test files are:
-- `train_data1231.jsonl`
-- `dev_data1231.jsonl`
-- `test_data1231.jsonl`
+- `train_data.jsonl`
+- `dev_data.jsonl`
+- `test_data.jsonl`
 
 The R-GNN module additionally requires a global sememe vocabulary and a graph description file (`./data/graph_data.json`), which specifies the full set of candidate sememes (`sememe_type` field).
 
@@ -99,11 +97,11 @@ To train and evaluate SememeLRM on one of the LRC benchmarks (e.g., `CogALexV`),
 
 ```bash
 python train_deberta_pos_rgcn.py \
-    --train_path ./data/train_data1231.jsonl \
-    --dev_path   ./data/dev_data1231.jsonl \
-    --test_path  ./data/test_data1231.jsonl \
+    --train_path ./data/train_data.jsonl \
+    --dev_path   ./data/dev_data.jsonl \
+    --test_path  ./data/test_data.jsonl \
     --source     CogALexV \
-    --deberta_name ./debertaV3 \
+    --deberta_name ./deberta_large \
     --rgcn_hidden_dim 1024 \
     --batch_size 32 \
     --lr 2e-5 \
@@ -118,7 +116,7 @@ To switch to a different benchmark, simply change the `--source` argument to one
 
 Key arguments:
 - `--source`: which benchmark to filter from the unified JSONL data.
-- `--deberta_name`: path or name of the DeBERTa-v3-large backbone.
+- `--deberta_name`: path or name of the DeBERTa-large backbone.
 - `--rgcn_hidden_dim`: hidden dimension of the R-GCN module (should typically match the PLM hidden size, e.g., 1024 for DeBERTa-large).
 - `--batch_size`, `--lr`, `--epochs`, `--weight_decay`, `--warmup_ratio`: standard training hyperparameters.
 - `--output_dir`: directory for model checkpoints, logs, and final evaluation reports (`error_analysis.json`, `predictions.txt`, etc.).
