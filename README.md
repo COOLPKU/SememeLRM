@@ -2,7 +2,6 @@
 
 ## 📰 News
 **ACL 2026 SAC Highlight Award Received (July 7, 2026)**
-Our paper *Enhancing Lexical Relation Mining with Structured Sememe Knowledge* has been selected as an **SAC Highlight Paper**, announced on July 7, 2026.
 
 ## 🌟 Key Contributions
 - We propose an automated STC pipeline, aiming to tackle the challenges of adopting structured sememe knowledge in annotation-scarce scenarios;
