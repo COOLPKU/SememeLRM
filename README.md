@@ -1,5 +1,9 @@
 # Enhancing Lexical Relation Mining with Structured Sememe Knowledge
 
+## 📰 News
+**ACL 2026 SAC Highlight Award Received (July 7, 2026)**
+Our paper *Enhancing Lexical Relation Mining with Structured Sememe Knowledge* has been selected as an **SAC Highlight Paper**, announced on July 7, 2026.
+
 ## 🌟 Key Contributions
 - We propose an automated STC pipeline, aiming to tackle the challenges of adopting structured sememe knowledge in annotation-scarce scenarios;
 - We propose the SememeLRM method to fully leverage structured sememe knowledge for enhancing LRC and LE, achieving a notable 1.6% improvement on average across benchmarks;
@@ -9,16 +13,16 @@
 
 ### 1. Lexical Relation Classification (LRC) Datasets
 We evaluate SememeLRM on five widely used LRC benchmarks:
-- **BLESS** 
-- **K&H+N** 
-- **EVALution** 
-- **CogALexV** 
-- **ROOT09** 
+- **BLESS**
+- **K&H+N**
+- **EVALution**
+- **CogALexV**
+- **ROOT09**
 
 These datasets jointly cover 10 relation types, including Random, Synonymy, Hypernymy, Co-hyponymy, Antonymy, Meronymy, Part_of, Event, Attribute, and Made_of.
 
 ### 2. Lexical Entailment (LE) Dataset
-- **HyperLex** 
+- **HyperLex**
 
 ### 3. Unified Data Format
 All data across the above benchmarks is unified into a single JSONL file (e.g., `test_data.jsonl`), with one JSON sample per line. Each sample contains a word pair, the relation label, the data source, and the DEF sememe tree information for both words.
@@ -130,8 +134,6 @@ If you find this work useful, please cite our paper:
 }
 ```
 
-
 ## 📄 More Resources
 
 For more work and resources related to the Chinese Object-Oriented Lexicon (COOL), Peking University, please refer to [this repository](https://github.com/COOLPKU) (to be released in the near future).
-
