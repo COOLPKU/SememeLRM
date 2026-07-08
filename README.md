@@ -1,3 +1,5 @@
+# Enhancing Lexical Relation Mining with Structured Sememe Knowledge
+
 ## 🌟 Key Contributions
 - We propose an automated STC pipeline, aiming to tackle the challenges of adopting structured sememe knowledge in annotation-scarce scenarios;
 - We propose the SememeLRM method to fully leverage structured sememe knowledge for enhancing LRC and LE, achieving a notable 1.6% improvement on average across benchmarks;
