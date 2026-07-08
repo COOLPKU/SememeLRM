@@ -1,7 +1,6 @@
 # Enhancing Lexical Relation Mining with Structured Sememe Knowledge
 
-## 📰 News
-**ACL 2026 SAC Highlight Award Received (July 7, 2026)**
+
 
 ## 🌟 Key Contributions
 - We propose an automated STC pipeline, aiming to tackle the challenges of adopting structured sememe knowledge in annotation-scarce scenarios;
@@ -132,6 +131,10 @@ If you find this work useful, please cite our paper:
     abstract = "Lexical Relation Mining (LRM) aims to identify and classify lexical relations between word pairs. In this paper, we focus on two subtypes of LRM: Lexical Relation Classification (LRC) and Lexical Entailment (LE). Existing top-performing methods for them rely heavily on Pre-trained Language Models (PLMs) yet fail to distinguish nuanced lexical relations. From a linguistic perspective, intralexical tree-structured sememe information can reflect interlexical relations. Inspired by this, we are motivated to explore leveraging such structured knowledge to enhance LRC and LE. We first propose an automated Sememe Tree Construction (STC) pipeline to predict sememe trees; Then, we present the SememeLRM method to fully leverage structured sememe knowledge; Experimental results show that it achieves a notable 1.6{\%} improvement on average across benchmarks, even outperforming Large Language Model (LLM)-based methods that contain 20 times more parameters on most benchmarks. Further results also suggest that sememe trees predicted by our pipeline can rival the gold-standard in HowNet, extending their applicability to lexico-semantic computing. Overall, this paper presents a potentially generalizable framework for leveraging complete sememe trees and makes significant progress, helping to unlock the value of such intralexical knowledge in downstream tasks."
 }
 ```
+
+## 📰 News
+**July 7, 2026. ACL 2026 SAC Highlight Award Received**
+
 
 ## 📄 More Resources
 
